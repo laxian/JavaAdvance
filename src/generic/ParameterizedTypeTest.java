@@ -18,6 +18,7 @@ public class ParameterizedTypeTest<T> {
 
     // ParameterizedType, and "? extends T" is a WildCardType
     List<? extends T> child;
+    List<? super T> child2;
 
     // GenericArrayType
     List<T>[] objs;
@@ -56,8 +57,12 @@ public class ParameterizedTypeTest<T> {
     private static void testWildCard(WildcardType genericType) {
         Type[] lowerBounds = genericType.getLowerBounds();
         Type[] upperBounds = genericType.getUpperBounds();
-        System.out.println(lowerBounds);
-        System.out.println(upperBounds);
+        for (int i = 0; i < lowerBounds.length; i++) {
+            System.out.println(lowerBounds[i]);
+        }
+        for (int i = 0; i < upperBounds.length; i++) {
+            System.out.println(upperBounds[i]);
+        }
     }
 
     private static void testGenericArrayType(GenericArrayType genericType) {
