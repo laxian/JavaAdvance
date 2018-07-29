@@ -24,10 +24,11 @@ public class ParameterizedTypeTest<T> {
 
     public static void main(String[] args) {
         try {
+            Field[] declaredFields = ParameterizedTypeTest.class.getDeclaredFields();
 
-            String[] fields = {"list", "set", "data", "child", "objs"};
-
-            for (String fName: fields) {
+            for (int i = 0; i < declaredFields.length; i++) {
+                Field f = declaredFields[i];
+                String fName = f.getName();
 
                 Field list = ParameterizedTypeTest.class.getDeclaredField(fName);
                 Type genericType = list.getGenericType();
