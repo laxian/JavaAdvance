@@ -2,6 +2,7 @@ package algorithm;
 
 /**
  * Created by leochou on 2019/10/20.
+ * 二进制1的个数
  */
 public class NumberOfOne {
 
@@ -31,6 +32,6 @@ public class NumberOfOne {
     }
 
     public static void main(String[] args) {
-        System.out.println(fun2(-2147483648));
+        System.out.println(fun2(7));
     }
 }
