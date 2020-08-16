@@ -1,6 +1,10 @@
 package algorithm;
 
-// SUM∈[n,6n]，分解成n个数，每个数∈[1,6]，输出所有组合
+import java.util.Arrays;
+
+/** SUM∈[n,6n]，分解成n个数，每个数∈[1,6]，输出所有组合
+ *  另一种描述是，n个骰子，正面朝上有几种组合（假设有序）
+ */
 public class Num2NArray {
 
     private static int SUM = 9;
@@ -18,7 +22,7 @@ public class Num2NArray {
         if (n == 1) {
             RESULT++;
             a[CNT - n] = s;
-            System.out.println(arr2String(a));
+            System.out.println(Arrays.toString(a));
         }
         for (int i = 1; i <= 6; i++) {
             if (!in(s - i, n - 1)) continue;
@@ -27,15 +31,6 @@ public class Num2NArray {
             }
             f(s - i, n - 1, a);
         }
-    }
-
-    private static String arr2String(int[] a) {
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < a.length - 1; i++) {
-            sb.append(a[i]).append(", ");
-        }
-        sb.append(a[a.length - 1]).append("]");
-        return sb.toString();
     }
 
     /**
